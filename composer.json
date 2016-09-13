@@ -12,6 +12,6 @@
     ],
 	"require": {
         	"composer/installers": "~1.0",
-		"google/apiclient": "1.0.*@beta"
+		"google/apiclient": "1.0.*@dev"
     	}
 }

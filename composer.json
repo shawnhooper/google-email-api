@@ -1,0 +1,17 @@
+{
+	"name": "actionable/google-email-api",
+	"type": "wordpress-plugin",
+	"license": "GPL",
+    	"authors": [
+        {
+            "name": "Shawn Hooper",
+            "email": "shawn@actionable.co",
+            "homepage": "https://www.shawnhooper.ca/",
+            "role": "Director of IT"
+        }
+    ],
+	"require": {
+        	"composer/installers": "~1.0",
+		"google/apiclient": "1.0.*@beta"
+    	}
+}

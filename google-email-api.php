@@ -2,7 +2,7 @@
 /*
 Plugin Name: Google E-Mail API
 Description: Integrates the Google E-Mail API into WordPress.
-Version: 1.0.0
+Version: 1.0.3
 Author: Shawn Hooper, Actionable
 */
 
@@ -47,7 +47,6 @@ class GoogleEmailAPIPlugin {
 	}
 
 	function settings_init() {
-		// Add the section to reading settings so we can add our fields to it
 		add_settings_section(
 			'google_email_api_key_section',
 			'API Key',
@@ -55,7 +54,6 @@ class GoogleEmailAPIPlugin {
 			'google-email-api'
 		);
 
-		// Add the field with the names and function to use for our new settings, put it in our new section
 		add_settings_field(
 			'google_email_api_key',
 			'Key',
@@ -64,24 +62,30 @@ class GoogleEmailAPIPlugin {
 			'google_email_api_key_section'
 		);
 
-		register_setting( 'google-email-api', 'google_email_api_key' );
-	}
+		add_settings_field(
+			'google_email_api_secret',
+			'Key',
+			array( $this, 'google_email_api_secret_callback' ),
+			'google-email-api',
+			'google_email_api_key_section'
+		);
 
-	/*
-	 * Settings section callback function
-	 */
+		register_setting( 'google-email-api', 'google_email_api_key' );
+		register_setting( 'google-email-api', 'google_email_api_secret' );
+	}
 
 	function api_key_section_callback() {
 		echo '<p>A valid Google E-Mail API Key is required in order for this plugin to function properly.</p>';
 	}
 
-	/*
-	 * Callback function for our example setting
-	 */
-
 	function google_email_api_key_callback() {
 		$setting = esc_attr( get_option( 'google_email_api_key' ) );
 		echo "<input type='text' name='google_email_api_key' size='50' value='$setting' />";
+	}
+
+	function google_email_api_secret_callback() {
+		$setting = esc_attr( get_option( 'google_email_api_secret' ) );
+		echo "<input type='text' name='google_email_api_secret' size='50' value='$setting' />";
 	}
 
 }

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Google E-Mail API
 Description: Integrates the Google E-Mail API into WordPress.
-Version: 1.0.3
+Version: 1.0.4
 Author: Shawn Hooper, Actionable
 */
 
